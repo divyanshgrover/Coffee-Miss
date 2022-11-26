@@ -1,0 +1,134 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "coffee miss",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "OrderCoffeeIntent",
+          "slots": [
+            {
+              "name": "coffeedrink",
+              "type": "Coffeedrinks"
+            }
+          ],
+          "samples": [
+            "{coffeedrink}",
+            "i would like to order an {coffeedrink}",
+            "order an {coffeedrink} for me",
+            "an {coffeedrink} for me",
+            "a {coffeedrink} for me",
+            "i would like to order a {coffeedrink}",
+            "order a {coffeedrink} for me"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Espresso"
+              }
+            },
+            {
+              "name": {
+                "value": "Double Espresso"
+              }
+            },
+            {
+              "name": {
+                "value": "Cafe Latte"
+              }
+            },
+            {
+              "name": {
+                "value": "Cappuccino"
+              }
+            },
+            {
+              "name": {
+                "value": "Mocha"
+              }
+            },
+            {
+              "name": {
+                "value": "Iced Coffee"
+              }
+            }
+          ],
+          "name": "Coffeedrinks"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "OrderCoffeeIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "coffeedrink",
+              "type": "Coffeedrinks",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1141893195714.377206882504.670211650844"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Slot.Validation.1141893195714.377206882504.670211650844",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please say again "
+          }
+        ]
+      }
+    ]
+  },
+  "version": "7"
+}
